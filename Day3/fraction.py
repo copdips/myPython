@@ -5,12 +5,14 @@ class Fraction:
         self.den = D
 
     def __str__(self):
+        # user by print(varibale)
         res = str(self.num) + "/" + str(self.den)
         return res
 
     def __repr__(self):
+        # user by varibale without print(varibale)
         # return self.__str__()
-        res = str(self.num) + "/" + str(self.den)
+        res = str(self.num) + " repr"
         return res
 
     def __mul__(self, autre):
