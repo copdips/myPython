@@ -12,6 +12,8 @@ def counting(filename):
 
     return nLines, nWords,nChars
 
+
+
 if len(argv) < 2:
     print('Not enough arguments!')
     exit(1)

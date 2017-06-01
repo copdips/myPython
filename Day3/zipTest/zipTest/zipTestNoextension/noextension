@@ -1,0 +1,26 @@
+"""
+    construction d'un histogramme à partir des suffrages
+"""
+nbVoix = "besancenot 1498581 buffet 707268 schivardi 123540 bayrou 6820119 bové 483008 voynet 576666 villiers 818407 royal 9500112 nihous 420645 le_pen 3834530 laguiller 487857 sarkozy 11448663"
+
+
+liste = nbVoix.upper().split(" ")
+#print(liste)
+
+nbVoixParCandidat = dict( (liste[i*2],int(liste[2*i+1])) for i  in  range(len(liste)//2) )
+
+def pourcentage(dico) :
+    s = sum(dico[k] for k in dico.keys())
+    return {k:round(dico[k]*100/s,7) for k in dico.keys()}
+
+def histo(dico) :
+    d = pourcentage(dico)
+    l = max(len(str(k)) for k in d.keys())
+    print("histogramme (classement alphabetique) :")
+    for k in sorted(d.keys()) :
+        print(("%-"+str(l)+"s (%7.4f %%): ")  % (str(k), d[k]), end='')
+        print("*"*round(1.75*d[k]))
+
+print("nombre de votes par candidat (dictionnaire): \n", nbVoixParCandidat, "\n")
+print("pourcentage par candidat (dictionnaire): \n", pourcentage(nbVoixParCandidat), "\n")
+histo(nbVoixParCandidat)
