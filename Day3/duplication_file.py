@@ -3,18 +3,14 @@ def printFile(fileIn):
         print(myFileIn.read())
 
 def duplicate_file(overwrite=False, append=False,**args):
-    """
-        deplicate file
-        2 args are mandatory:
-        - src: the file to copy
-        - dst: the file to create
-    """
+    """ deplicate file"""
     print("args:",args.keys())
     for i in args.keys():
         print(i,":",args[i])
 
     if not {"src","dst"} <= args.keys():
-        raise TypeError("src and dst are the mandatory params")
+        print("src and dst are the mandatory params")
+        exit(1)
 
     print("***duplicate file***")
 
@@ -37,7 +33,14 @@ def duplicate_file(overwrite=False, append=False,**args):
 
 
 try :
-    duplicate_file(src="1.txt",dst="2.txt")
+    my_args = [
+    'src="133.txt",dst="2.txt"',
+    'src="22txt",dst="1.txt"',
+    ]
+    # duplicate_file(my_args)
+    print("eval:")
+    for a in my_args:
+        eval('duplicate_file(' + a + ')')
     # duplicate_file("1.txt","2.txt",overwrite=True)
     # duplicate_file("1.mp3","2.mp3",overwrite=True)
 except TypeError as e:
