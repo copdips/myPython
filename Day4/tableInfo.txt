@@ -1,0 +1,220 @@
+['Airport', 'City', 'Cityothername', 'Citypops', 'Continent', 'Country', 'Countryothername', 'Countrypops', 'Economy', 'EthnicGroup', 'LakeOnIsland', 'Language', 'MountainOnIsland', 'Organization', 'Politics', 'Population', 'Province', 'Provinceothername', 'Provpops', 'Religion', 'RiverOnIsland', 'RiverThrough', 'Sea', 'borders', 'encompasses', 'geo_Desert', 'geo_Estuary', 'geo_Island', 'geo_Lake', 'geo_Mountain', 'geo_River', 'geo_Sea', 'geo_Source', 'isMember', 'islandIn', 'located', 'locatedOn', 'mergesWith']
+
+Description of the database C:\Users\gk\Documents\myPython\Day4\world.db - 38 tables (alphabetic sort on names) :
+
+Description of the table: Airport
+0 | IATACode                                                | VARCHAR(3)      | 0 |        None | 1
+1 | Name                                                    | VARCHAR2(100)   | 0 |        None | 0
+2 | Country                                                 | VARCHAR2(4)     | 0 |        None | 0
+3 | City                                                    | VARCHAR2(50)    | 0 |        None | 0
+4 | Province                                                | VARCHAR2(50)    | 0 |        None | 0
+5 | Island                                                  | VARCHAR2(50)    | 0 |        None | 0
+6 | Latitude                                                | NUMBER          | 0 |        None | 0
+7 | Longitude                                               | NUMBER          | 0 |        None | 0
+8 | Elevation                                               | NUMBER          | 0 |        None | 0
+9 | gmtOffset                                               | NUMBER          | 0 |        None | 0
+
+Description of the table: City
+0 | Name                                                    | VARCHAR2(50)    | 0 |        None | 1
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 3
+3 | Population                                              | NUMBER          | 0 |        None | 0
+4 | Latitude                                                | NUMBER          | 0 |        None | 0
+5 | Longitude                                               | NUMBER          | 0 |        None | 0
+6 | Elevation                                               | NUMBER          | 0 |        None | 0
+
+Description of the table: Cityothername
+0 | City                                                    | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 2
+3 | othername                                               | VARCHAR2(50)    | 0 |        None | 4
+
+Description of the table: Citypops
+0 | City                                                    | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 2
+3 | Year                                                    | NUMBER          | 0 |        None | 4
+4 | Population                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: Continent
+0 | Name                                                    | VARCHAR2(20)    | 0 |        None | 1
+1 | Area                                                    | NUMBER(10)      | 0 |        None | 0
+
+Description of the table: Country
+0 | Name                                                    | VARCHAR2(50)    | 1 |        None | 0
+1 | Code                                                    | VARCHAR2(4)     | 0 |        None | 1
+2 | Capital                                                 | VARCHAR2(50)    | 0 |        None | 0
+3 | Province                                                | VARCHAR2(50)    | 0 |        None | 0
+4 | Area                                                    | NUMBER          | 0 |        None | 0
+5 | Population                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: Countryothername
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+1 | othername                                               | VARCHAR2(50)    | 0 |        None | 2
+
+Description of the table: Countrypops
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+1 | Year                                                    | NUMBER          | 0 |        None | 2
+2 | Population                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: Economy
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+1 | GDP                                                     | NUMBER          | 0 |        None | 0
+2 | Agriculture                                             | NUMBER          | 0 |        None | 0
+3 | Service                                                 | NUMBER          | 0 |        None | 0
+4 | Industry                                                | NUMBER          | 0 |        None | 0
+5 | Inflation                                               | NUMBER          | 0 |        None | 0
+6 | Unemployment                                            | NUMBER          | 0 |        None | 0
+
+Description of the table: EthnicGroup
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+1 | Name                                                    | VARCHAR2(50)    | 0 |        None | 1
+2 | Percentage                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: LakeOnIsland
+0 | Lake                                                    | VARCHAR2(50)    | 0 |        None | 1
+1 | Island                                                  | VARCHAR2(50)    | 0 |        None | 2
+
+Description of the table: Language
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+1 | Name                                                    | VARCHAR2(50)    | 0 |        None | 1
+2 | Percentage                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: MountainOnIsland
+0 | Mountain                                                | VARCHAR2(50)    | 0 |        None | 1
+1 | Island                                                  | VARCHAR2(50)    | 0 |        None | 2
+
+Description of the table: Organization
+0 | Abbreviation                                            | VARCHAR2(12)    | 0 |        None | 1
+1 | Name                                                    | VARCHAR2(100)   | 1 |        None | 0
+2 | City                                                    | VARCHAR2(50)    | 0 |        None | 0
+3 | Country                                                 | VARCHAR2(4)     | 0 |        None | 0
+4 | Province                                                | VARCHAR2(50)    | 0 |        None | 0
+5 | Established                                             | DATE            | 0 |        None | 0
+
+Description of the table: Politics
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+1 | Independence                                            | DATE            | 0 |        None | 0
+2 | WasDependent                                            | VARCHAR2(50)    | 0 |        None | 0
+3 | Dependent                                               | VARCHAR2(4)     | 0 |        None | 0
+4 | Government                                              | VARCHAR2(120)   | 0 |        None | 0
+
+Description of the table: Population
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+1 | Population_Growth                                       | NUMBER          | 0 |        None | 0
+2 | Infant_Mortality                                        | NUMBER          | 0 |        None | 0
+
+Description of the table: Province
+0 | Name                                                    | VARCHAR2(50)    | 1 |        None | 1
+1 | Country                                                 | VARCHAR2(4)     | 1 |        None | 2
+2 | Population                                              | NUMBER          | 0 |        None | 0
+3 | Area                                                    | NUMBER          | 0 |        None | 0
+4 | Capital                                                 | VARCHAR2(50)    | 0 |        None | 0
+5 | CapProv                                                 | VARCHAR2(50)    | 0 |        None | 0
+
+Description of the table: Provinceothername
+0 | Province                                                | VARCHAR2(50)    | 0 |        None | 2
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+2 | othername                                               | VARCHAR2(50)    | 0 |        None | 3
+
+Description of the table: Provpops
+0 | Province                                                | VARCHAR2(50)    | 0 |        None | 2
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+2 | Year                                                    | NUMBER          | 0 |        None | 3
+3 | Population                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: Religion
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+1 | Name                                                    | VARCHAR2(50)    | 0 |        None | 1
+2 | Percentage                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: RiverOnIsland
+0 | River                                                   | VARCHAR2(50)    | 0 |        None | 1
+1 | Island                                                  | VARCHAR2(50)    | 0 |        None | 2
+
+Description of the table: RiverThrough
+0 | River                                                   | VARCHAR2(50)    | 0 |        None | 1
+1 | Lake                                                    | VARCHAR2(50)    | 0 |        None | 2
+
+Description of the table: Sea
+0 | Name                                                    | VARCHAR2(50)    | 0 |        None | 1
+1 | Depth                                                   | NUMBER          | 0 |        None | 0
+
+Description of the table: borders
+0 | Country1                                                | VARCHAR2(4)     | 0 |        None | 1
+1 | Country2                                                | VARCHAR2(4)     | 0 |        None | 2
+2 | Length                                                  | NUMBER          | 0 |        None | 0
+
+Description of the table: encompasses
+0 | Country                                                 | VARCHAR2(4)     | 1 |        None | 1
+1 | Continent                                               | VARCHAR2(20)    | 1 |        None | 2
+2 | Percentage                                              | NUMBER          | 0 |        None | 0
+
+Description of the table: geo_Desert
+0 | Desert                                                  | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_Estuary
+0 | River                                                   | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_Island
+0 | Island                                                  | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_Lake
+0 | Lake                                                    | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_Mountain
+0 | Mountain                                                | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_River
+0 | River                                                   | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_Sea
+0 | Sea                                                     | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: geo_Source
+0 | River                                                   | VARCHAR2(50)    | 0 |        None | 3
+1 | Country                                                 | VARCHAR2(4)     | 0 |        None | 2
+2 | Province                                                | VARCHAR2(50)    | 0 |        None | 1
+
+Description of the table: isMember
+0 | Country                                                 | VARCHAR2(4)     | 0 |        None | 1
+1 | Organization                                            | VARCHAR2(12)    | 0 |        None | 2
+2 | Type                                                    | VARCHAR2(60)    | 0 |    'member' | 0
+
+Description of the table: islandIn
+0 | Island                                                  | VARCHAR2(50)    | 0 |        None | 0
+1 | Sea                                                     | VARCHAR2(50)    | 0 |        None | 0
+2 | Lake                                                    | VARCHAR2(50)    | 0 |        None | 0
+3 | River                                                   | VARCHAR2(50)    | 0 |        None | 0
+
+Description of the table: located
+0 | City                                                    | VARCHAR2(50)    | 0 |        None | 0
+1 | Province                                                | VARCHAR2(50)    | 0 |        None | 0
+2 | Country                                                 | VARCHAR2(4)     | 0 |        None | 0
+3 | River                                                   | VARCHAR2(50)    | 0 |        None | 0
+4 | Lake                                                    | VARCHAR2(50)    | 0 |        None | 0
+5 | Sea                                                     | VARCHAR2(50)    | 0 |        None | 0
+
+Description of the table: locatedOn
+0 | City                                                    | VARCHAR2(50)    | 0 |        None | 1
+1 | Province                                                | VARCHAR2(50)    | 0 |        None | 2
+2 | Country                                                 | VARCHAR2(4)     | 0 |        None | 3
+3 | Island                                                  | VARCHAR2(50)    | 0 |        None | 4
+
+Description of the table: mergesWith
+0 | Sea1                                                    | VARCHAR2(50)    | 0 |        None | 1
+1 | Sea2                                                    | VARCHAR2(50)    | 0 |        None | 2
