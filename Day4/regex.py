@@ -26,5 +26,5 @@ shiftMaxStringFormat = '{:' + str(maxString) + '}'
 print("\nshiftMaxStringFormat:")
 print(shiftMaxStringFormat)
 
-for d in dict_domain.keys() :
+for d in sorted(dict_domain.keys()) :
     print(shiftMaxStringFormat.format(d), "\t:\t", dict_domain[d])
