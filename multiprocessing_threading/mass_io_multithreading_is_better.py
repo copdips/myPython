@@ -1,28 +1,32 @@
-#!/usr/bin/python
 from threading import Thread
+#!/usr/bin/python
 from multiprocessing import cpu_count, Process,Manager
 import time
 from timeit import timeit
 
 
 cpu_count = cpu_count()
-# def count(n):
-#     ''' for mass IO, multithreading is better
-#     '''
-#     time.sleep(0.5)
-
 
 def count(n):
-    ''' for mass calc, multiprocess is better
-        but dont surpass cpu core number
+    ''' for mass IO, multithreading is better
     '''
+    time.sleep(0.5)
     while n > 0:
         n -= 1
 
 
+# def count(n):
+#     ''' for mass calc, multiprocess is better
+#         but dont surpass cpu core number
+#     '''
+#     while n > 0:
+#         n -= 1
+
+
 def test_normal():
-    count(1000000)
-    count(1000000)
+    for i in range(cpu_count-1):
+        count(1000000)
+        time.sleep(0.5)
 
 
 def test_Thread():
