@@ -33,6 +33,7 @@ async def option_b():
     asyncio.ensure_future(background_job())
 
 
+# * asyncio.create_task() already exists in one of the python3.7 or 3.8
 async def option_c():
     loop = asyncio.get_event_loop()
     loop.create_task(background_job())
