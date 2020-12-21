@@ -1,11 +1,8 @@
 import os
-import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
 
-Base = declarative_base()
+from sqlalchemy import Column, ForeignKey, Integer, String, create_engine
+from sqlalchemy import Column, ForeignKey, Integer, String, create_engine
+
 
 class Person(Base):
     __tablename__ = 'person'
