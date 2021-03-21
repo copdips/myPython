@@ -12,16 +12,17 @@ from typing import Any, List, Optional, Tuple
 # import pytest
 #
 
+
 class Solution:
     def checkValidString(self, s: str) -> bool:
         balances = {0}
         for c in s:
             print("c:", c, "in balances:", balances)
-            tmp = set(balances) if c == '*' else set()
-            if c == '*' or c == '(':
-                tmp.update({y+1 for y in balances})
-            if c == '*' or c == ')':
-                tmp.update({y-1 for y in balances if y > 0})
+            tmp = set(balances) if c == "*" else set()
+            if c == "*" or c == "(":
+                tmp.update({y + 1 for y in balances})
+            if c == "*" or c == ")":
+                tmp.update({y - 1 for y in balances if y > 0})
             balances = tmp
             print("out balances:", balances)
         print("==============final balances:", balances)

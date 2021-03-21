@@ -1,5 +1,6 @@
-import requests
 import sqlite3
+
+import requests
 
 conn = sqlite3.connect("datafile.db")
 
@@ -22,5 +23,6 @@ def dict_of_dicts_merge(x, y):
     for key in y.keys() - overlapping_keys:
         z[key] = deepcopy(y[key])
     return z
+
 
 print("hello")

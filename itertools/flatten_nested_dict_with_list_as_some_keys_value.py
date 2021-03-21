@@ -1,5 +1,5 @@
-from copy import deepcopy
 import itertools
+from copy import deepcopy
 
 nested_data = {"env": ["prd", "dev"], "os": ["win", "unx"], "msg": "ok"}
 

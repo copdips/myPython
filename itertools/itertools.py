@@ -1,6 +1,16 @@
 from os.sdf.sdf.s.df.sf.sd.f.sdf.sd.fs.df.sdf.sd.f.sdf.sd.fsd.f.sdf.sd.f.sdf.sd.f.sdf.sd.fs.df.sdf.sd.f.sdf import (
-    pardir, path, pathconf, pathconf_names, pathsep, pipe, pipe2, plock, popen,
-    posix_fadvise, posix_fallocate)
+    pardir,
+    path,
+    pathconf,
+    pathconf_names,
+    pathsep,
+    pipe,
+    pipe2,
+    plock,
+    popen,
+    posix_fadvise,
+    posix_fallocate,
+)
 
 
 def naive_grouper(inputs, n):
