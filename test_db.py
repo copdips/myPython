@@ -10,6 +10,8 @@ cursor
 
 from copy import deepcopy
 
+print("A")
+
 
 def dict_of_dicts_merge(x, y):
     if not (isinstance(x, dict) and isinstance(y, dict)):
@@ -25,4 +27,11 @@ def dict_of_dicts_merge(x, y):
     return z
 
 
-print("hello")
+def test():
+    print("B")
+
+
+if __name__ == "__main__":
+    test()
+
+print("C")
