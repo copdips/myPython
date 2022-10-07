@@ -2,7 +2,8 @@ import asyncio
 
 
 async def main():
-    await asyncio.sleep(1)
+    await asyncio.sleep(5)
+    # await asyncio.sleep(5)
     print("hello")
 
 
@@ -10,4 +11,6 @@ async def main():
 # loop = asyncio.get_event_loop()
 # loop.run_until_complete(main())
 # loop.close()
-asyncio.run(main())
+asyncio.run(
+    main()
+)

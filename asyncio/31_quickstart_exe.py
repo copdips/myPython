@@ -11,7 +11,7 @@ async def main():
 
 def blocking():
     # if this blocking sleep is larger thant 1 sec as defined in the main() asyncio.sleep, we will get an error.
-    time.sleep(0.5)
+    time.sleep(1.5)
     print(f"{time.ctime()} Hello from a thread!")
 
 
