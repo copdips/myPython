@@ -1,0 +1,15 @@
+[flake8]
+show-source = True
+statistics = True
+count = True
+extend-ignore = E203,E501,W503
+ignore = D203
+max-complexity = 10
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist,
+    venv,
+    stack,
+    _local_test,

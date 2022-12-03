@@ -1,0 +1,45 @@
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_configs = true
+# disallow_untyped_defs = true
+exclude = ["^venv/", "^build/", "^_local_test/"]
+
+[tool.bandit]
+exclude_dirs = ["venv", "_local_test"]
+skips = ["B101"]
+# tests = ["B201", "B301"]
+
+[tool.pylint.main]
+# ! type to use pyspark-stubs
+# extension-pkg-allow-list = ["pyspark"]
+# ignored-modules = ["pyspark"]
+jobs = 0
+# [tool.pylint.typecheck]
+# # ! type to use pyspark-stubs
+# generated-members = ["pyspark.sql.functions"]
+[tool.pylint.variables]
+# List of additional names supposed to be defined in builtins. Remember that
+# you should avoid defining new builtins when possible.
+additional-builtins = ["spark"]
+[tool.pylint.basic]
+good-names = [
+    "df",  # datafram
+    "tb",  # traceback
+]
+[tool.pylint."messages control"]
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "logging-fstring-interpolation",
+]
+[tool.pylint.miscellaneous]
+notes = ["FIXME"]
+[tool.pylint.format]
+max-line-length = 88
+expected-line-ending-format = "LF"
+ignore-long-lines = ".*https?:.*"
