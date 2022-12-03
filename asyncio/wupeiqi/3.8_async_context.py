@@ -4,6 +4,7 @@ import asyncio
 class AsyncContextManager:
     def __init__(self):
         print("AsyncContextManager init")
+        self.conn = None
 
     async def do_something(self):
         return 666
@@ -21,8 +22,8 @@ class AsyncContextManager:
 
 
 async def func():
-    async with AsyncContextManager() as f:
-        result = await f.do_something()
+    async with AsyncContextManager() as acm:
+        result = await acm.do_something()
         print(result)
 
 
