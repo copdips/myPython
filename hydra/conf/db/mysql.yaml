@@ -1,0 +1,4 @@
+driver: mysql
+user: omry
+pass: secret
+timeout: 1

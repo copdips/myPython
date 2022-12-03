@@ -1,0 +1,4 @@
+driver: postgresql
+user: omry
+pass: secret
+timeout: 2
