@@ -22,7 +22,7 @@ def cpu_bound():
 
 
 async def main():
-    loop: asyncio.loop = asyncio.get_running_loop()
+    loop = asyncio.get_running_loop()
     loop.call_soon(functools.partial(print, "Hello", flush=True))
 
     # 1. run_in_executor() default executer is ThreadPoolExecutor, so None here

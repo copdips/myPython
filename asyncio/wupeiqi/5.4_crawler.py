@@ -19,7 +19,7 @@ async def main():
             "https://www.pythonav.com",
         ]
         tasks = [asyncio.create_task(fetch(session, url)) for url in url_list]
-        done, pending = await asyncio.wait(tasks)
+        done, pending = await asyncio.wait(tasks, timeout=None)
 
 
 if __name__ == "__main__":
