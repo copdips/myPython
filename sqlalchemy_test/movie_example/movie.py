@@ -1,6 +1,5 @@
-from sqlalchemy import Column, String, Integer, Date, TypeDecorator
-
 from base import Base
+from sqlalchemy import Column, Date, Integer, String, TypeDecorator
 
 
 class DatetimeType(TypeDecorator):
@@ -11,7 +10,7 @@ class DatetimeType(TypeDecorator):
 
 
 class Movie(Base):
-    __tablename__ = 'movies'
+    __tablename__ = "movies"
 
     id = Column(Integer, primary_key=True)
     title = Column(String)

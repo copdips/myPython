@@ -1,18 +1,12 @@
 # 1 - imports
-from datetime import date
+from datetime import date, datetime, timedelta
 
 from actor import Actor
 from base import Session, engine
 from contact_details import ContactDetails
 from movie import Movie
-
-
-from datetime import date, timedelta
-from datetime import datetime
-
+from sqlalchemy.dialects import mssql, mysql, oracle, postgresql, sqlite
 from sqlalchemy.orm import Query
-from sqlalchemy.dialects import postgresql, oracle, mssql, mysql, sqlite
-
 
 try:
     basestring
@@ -160,4 +154,3 @@ print("### Actors that live in Glendale:")
 for actor in glendale_stars:
     print(f"{actor.name} has a house in Glendale")
 print("")
-

@@ -38,6 +38,7 @@ async def option_c():
     loop = asyncio.get_event_loop()
     loop.create_task(background_job())
 
+
 loop = asyncio.get_event_loop()
 
 loop.create_task(option_a(loop))

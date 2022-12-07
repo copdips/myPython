@@ -1,10 +1,9 @@
-from sqlalchemy import create_engine
+from sqlalchemy import Column, Date, ForeignKey, Integer, String, Table, create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy import Column, String, Integer, Date, Table, ForeignKey
+from sqlalchemy.orm import relationship, sessionmaker
 
 # engine = create_engine('postgresql://usr:pass@localhost:5432/sqlalchemy')
-engine = create_engine('sqlite:///moive_example.db')
+engine = create_engine("sqlite:///moive_example.db")
 Session = sessionmaker(bind=engine)
 
 Base = declarative_base()
@@ -18,7 +17,7 @@ Base = declarative_base()
 
 
 class Sub(Base):
-    __tablename__ = 'sub'
+    __tablename__ = "sub"
 
     subid = Column(String, primary_key=True)
     subname = Column(String)
@@ -28,10 +27,9 @@ class Sub(Base):
 
 
 class VM(Base):
-    __tablename__ = 'vm'
+    __tablename__ = "vm"
 
     vmid = Column(String, primary_key=True)
     # subid = Column(String, ForeignKey("sub.subid"))
     vmname = Column(String)
     # vmname = relationship("Sub", backref="vm")
-

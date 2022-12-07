@@ -1,9 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 from sqlalchemy_declarative import Address, Base, Person
 
-engine = create_engine('sqlite:///sqlalchemy_example.db')
+engine = create_engine("sqlite:///sqlalchemy_example.db")
 # Bind the engine to the metadata of the Base class so that the
 # declarative can be accessed through a DBSession instance
 Base.metadata.bind = engine
@@ -23,11 +22,11 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 # Insert a Person in the person table
-new_person = Person(name='new person')
+new_person = Person(name="new person")
 session.add(new_person)
 session.commit()
 
 # Insert an Address in the address table
-new_address = Address(post_code='00000', person=new_person)
+new_address = Address(post_code="00000", person=new_person)
 session.add(new_address)
 session.commit()

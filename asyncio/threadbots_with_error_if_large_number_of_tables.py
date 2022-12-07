@@ -1,8 +1,8 @@
-from attr import attrs, attrib
 import sys
-
 import threading
 from queue import Queue
+
+from attr import attrib, attrs
 
 
 class ThreadBot(threading.Thread):
@@ -14,11 +14,11 @@ class ThreadBot(threading.Thread):
     def manage_table(self):
         while True:
             task = self.tasks.get()
-            if task == 'prepare table':
+            if task == "prepare table":
                 kitchen.give(to=self.cutlery, knives=4, forks=4)
-            elif task == 'clear table':
+            elif task == "clear table":
                 self.cutlery.give(to=kitchen, knives=4, forks=4)
-            elif task == 'shutdown':
+            elif task == "shutdown":
                 return
 
 
@@ -27,7 +27,7 @@ class Cutlery:
     knives = attrib(default=0)
     forks = attrib(default=0)
 
-    def give(self, to: 'Cutlery', knives=0, forks=0):
+    def give(self, to: "Cutlery", knives=0, forks=0):
         self.change(-knives, -forks)
         to.change(knives, forks)
 
@@ -41,17 +41,17 @@ bots = [ThreadBot() for i in range(10)]
 
 for bot in bots:
     for i in range(int(sys.argv[1])):
-        bot.tasks.put('prepare table')
-        bot.tasks.put('clear table')
-    bot.tasks.put('shutdown')
+        bot.tasks.put("prepare table")
+        bot.tasks.put("clear table")
+    bot.tasks.put("shutdown")
 
-print('Kitchen inventory before service:', kitchen)
+print("Kitchen inventory before service:", kitchen)
 for bot in bots:
     bot.start()
 
 for bot in bots:
     bot.join()
-print('Kitchen inventory after service:', kitchen)
+print("Kitchen inventory after service:", kitchen)
 
 # when the table number given by sys.argv[1] is large, we will see different Cutlery
 # before and after the threading.

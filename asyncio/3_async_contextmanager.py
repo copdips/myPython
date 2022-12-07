@@ -1,11 +1,14 @@
 def download_webpage(url):
     print(url)
 
+
 def update_stats(url):
     print(url)
 
+
 def process(data):
     print(data)
+
 
 # The blocking way
 from contextlib import contextmanager
@@ -17,7 +20,8 @@ def web_page(url):
     yield data
     update_stats(url)
 
-with web_page('google.com') as data:
+
+with web_page("google.com") as data:
     process(data)
 
 
@@ -31,7 +35,8 @@ async def web_page(url):
     yield data
     await update_stats(url)
 
-async with web_page('google.com') as data:
+
+async with web_page("google.com") as data:
     process(data)
 
 
@@ -48,5 +53,6 @@ async def web_page(url):
     yield data
     await loop.run_in_executor(None, update_stats, url)
 
-async with web_page('google.com') as data:
+
+async with web_page("google.com") as data:
     process(data)

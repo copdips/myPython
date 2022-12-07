@@ -1,10 +1,11 @@
 import asyncio
+
 from aioredis import create_redis
 
 
 async def main():
-    redis = await create_redis(('localhost', 6379))
-    keys = ['Americas', 'Africa', 'Europe', 'Asia']
+    redis = await create_redis(("localhost", 6379))
+    keys = ["Americas", "Africa", "Europe", "Asia"]
     async for value in OneAtATime(redis, keys):
         await do_something_with(value)
 

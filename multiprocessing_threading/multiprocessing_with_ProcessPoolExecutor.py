@@ -7,7 +7,9 @@ PRIMES = [
     112272535095293,
     115280095190773,
     115797848077099,
-    1099726899285419]
+    1099726899285419,
+]
+
 
 def is_prime(n):
     if n % 2 == 0:
@@ -19,10 +21,11 @@ def is_prime(n):
             return False
     return True
 
+
 def main():
     with concurrent.futures.ProcessPoolExecutor() as executor:
         for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
-            print('%d is prime: %s' % (number, prime))
+            print("%d is prime: %s" % (number, prime))
 
     # with concurrent.futures.ProcessPoolExecutor() as executor:
     #     future_to_prime = {executor.submit(is_prime, prime): prime for prime in PRIMES}
@@ -35,5 +38,6 @@ def main():
     #         else:
     #             print('%d is prime: %s' % (prime, result))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

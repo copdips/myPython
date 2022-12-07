@@ -1,6 +1,6 @@
-from threading import Thread
 # !/usr/bin/python
-from multiprocessing import Process,Manager
+from multiprocessing import Manager, Process
+from threading import Thread
 from timeit import timeit
 
 
@@ -19,12 +19,12 @@ def test_normal():
 
 
 def test_Thread():
-    t1 = Thread(target=count,args=(1000000,))
-    t2 = Thread(target=count,args=(1000000,))
-    t3 = Thread(target=count,args=(1000000,))
-    t4 = Thread(target=count,args=(1000000,))
-    t5 = Thread(target=count,args=(1000000,))
-    t6 = Thread(target=count,args=(1000000,))
+    t1 = Thread(target=count, args=(1000000,))
+    t2 = Thread(target=count, args=(1000000,))
+    t3 = Thread(target=count, args=(1000000,))
+    t4 = Thread(target=count, args=(1000000,))
+    t5 = Thread(target=count, args=(1000000,))
+    t6 = Thread(target=count, args=(1000000,))
     t1.start()
     t2.start()
     t3.start()
@@ -40,12 +40,12 @@ def test_Thread():
 
 
 def test_Process():
-    t1 = Process(target=count,args=(1000000,))
-    t2 = Process(target=count,args=(1000000,))
-    t3 = Process(target=count,args=(1000000,))
-    t4 = Process(target=count,args=(1000000,))
-    t5 = Process(target=count,args=(1000000,))
-    t6 = Process(target=count,args=(1000000,))
+    t1 = Process(target=count, args=(1000000,))
+    t2 = Process(target=count, args=(1000000,))
+    t3 = Process(target=count, args=(1000000,))
+    t4 = Process(target=count, args=(1000000,))
+    t5 = Process(target=count, args=(1000000,))
+    t6 = Process(target=count, args=(1000000,))
     t1.start()
     t2.start()
     t3.start()
@@ -60,15 +60,15 @@ def test_Process():
     t6.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("test_normal")
-    r = timeit('test_normal()', 'from __main__ import test_normal', number=10)
+    r = timeit("test_normal()", "from __main__ import test_normal", number=10)
     print(r)
 
     print("test_Thread")
-    r = timeit('test_Thread()', 'from __main__ import test_Thread', number=10)
+    r = timeit("test_Thread()", "from __main__ import test_Thread", number=10)
     print(r)
 
     print("test_Process")
-    r = timeit('test_Process()', 'from __main__ import test_Process', number=10)
+    r = timeit("test_Process()", "from __main__ import test_Process", number=10)
     print(r)

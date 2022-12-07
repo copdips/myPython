@@ -55,15 +55,15 @@ p2.children.append(c2)
 session.commit()
 
 print(p1.children)
-#>>> [Child c1, Child c2]
+# >>> [Child c1, Child c2]
 
 print(p2.children)
-#>>>  [Child c2]
+# >>>  [Child c2]
 
 # bad filter
 print(session.query(Parent).filter(Child.name == "c1").all())
-#>>>  [Parent p1, Parent p2]
+# >>>  [Parent p1, Parent p2]
 
 # good filter
-print(session.query(Parent).join(Parent.children).filter(Child.name == 'c1').all())
-#>>>  [Parent p1]
+print(session.query(Parent).join(Parent.children).filter(Child.name == "c1").all())
+# >>>  [Parent p1]

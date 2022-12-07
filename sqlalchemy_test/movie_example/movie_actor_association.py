@@ -1,17 +1,17 @@
-from sqlalchemy import Column, String, Integer, Date, Table, ForeignKey
+from base import Base
+from sqlalchemy import Column, Date, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
-from base import Base
-
 movies_actors_association = Table(
-    'movies_actors', Base.metadata,
-    Column('movie_id', Integer, ForeignKey('movies.id')),
-    Column('actor_id', Integer, ForeignKey('actors.id'))
+    "movies_actors",
+    Base.metadata,
+    Column("movie_id", Integer, ForeignKey("movies.id")),
+    Column("actor_id", Integer, ForeignKey("actors.id")),
 )
 
 
 class Movie(Base):
-    __tablename__ = 'movies'
+    __tablename__ = "movies"
 
     id = Column(Integer, primary_key=True)
     title = Column(String)

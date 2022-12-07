@@ -6,14 +6,16 @@ import multiprocessing
 import random
 import time
 
+
 def read(q):
     while True:
         try:
             value = q.get()
-            print('Get %s from queue.' % value)
+            print("Get %s from queue." % value)
             time.sleep(random.random())
         finally:
             q.task_done()
+
 
 def main():
     q = multiprocessing.JoinableQueue()
@@ -27,7 +29,7 @@ def main():
     # 子进程就开始独立于父进程运行
     pw1.start()
     pw2.start()
-    for c in [chr(ord('A') + i) for i in range(26)]:
+    for c in [chr(ord("A") + i) for i in range(26)]:
         # q是一个JoinableQueue对象，支持get方法读取第一个元素，如果q中没有元素，进程就会阻塞，直至q中被存入新元素
         q.put(c)
         # 26个字母依次放入JoinableQueue对象中，这时候两个子进程不再阻塞，开始真正地执行任务。两个子进程都用value = q.get()来读取数据，它们都在修改q对象，而我们并不用担心同步问题，这就是multiProcessing.Joinable数据结构的优势所在——它是多进程安全的，它会自动处理“加锁”的过程。
@@ -37,5 +39,6 @@ def main():
     except KeyboardInterrupt:
         print("stopped by hand")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

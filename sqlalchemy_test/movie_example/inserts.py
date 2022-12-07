@@ -3,10 +3,11 @@ from datetime import date
 from uuid import uuid4
 
 from actor import Actor
-from base import Session, engine, Base, Sub, VM
+from base import VM, Base, Session, Sub, engine
 from contact_details import ContactDetails
 from movie import Movie
 from stuntman import Stuntman
+
 
 def main():
     # 2 - generate database schema
@@ -63,7 +64,7 @@ def main():
     # sub-vm
     sub1 = Sub(subid=str(uuid4()), subname="sub1", eco="eco1")
     sub2 = Sub(subid=str(uuid4()), subname="sub2")
-    sub3 = Sub(subid=str(uuid4()), subname="sub3", vmname="vm3",eco="eco3")
+    sub3 = Sub(subid=str(uuid4()), subname="sub3", vmname="vm3", eco="eco3")
     sub4 = Sub(subid=str(uuid4()), subname="sub4", vmname="vm4", eco="eco3")
     sub5 = Sub(subid=str(uuid4()), subname="sub5", eco="eco3")
 

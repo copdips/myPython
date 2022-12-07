@@ -1,10 +1,9 @@
-from sqlalchemy import Column, String, Integer, Date
-
 from base import Base
+from sqlalchemy import Column, Date, Integer, String
 
 
 class Actor(Base):
-    __tablename__ = 'actors'
+    __tablename__ = "actors"
 
     id = Column(Integer, primary_key=True)
     name = Column(String)

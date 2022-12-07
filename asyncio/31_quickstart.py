@@ -1,12 +1,12 @@
 # quickstart.py
-import time
 import asyncio
+import time
 
 
 async def main():
-    print(f'{time.ctime()} Hello!')
+    print(f"{time.ctime()} Hello!")
     await asyncio.sleep(1.0)
-    print(f'{time.ctime()} Goodbye!')
+    print(f"{time.ctime()} Goodbye!")
     loop.stop()
 
 

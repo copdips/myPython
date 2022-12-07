@@ -1,11 +1,11 @@
 from asyncio import (
-    get_event_loop,
-    start_server,
     CancelledError,
     StreamReader,
     StreamWriter,
     Task,
     gather,
+    get_event_loop,
+    start_server,
 )
 
 

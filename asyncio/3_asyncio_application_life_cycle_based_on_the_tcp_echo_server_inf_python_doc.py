@@ -1,11 +1,11 @@
 from asyncio import (
-    get_event_loop,
-    start_server,
     CancelledError,
     StreamReader,
     StreamWriter,
     Task,
     gather,
+    get_event_loop,
+    start_server,
 )
 
 
@@ -27,8 +27,8 @@ async def echo(reader: StreamReader, writer: StreamWriter):
 
 
 loop = get_event_loop()
-coro = start_server(echo,  "127.0.0.1",  8888, loop=loop)
-server = loop.run_until_complete( coro )
+coro = start_server(echo, "127.0.0.1", 8888, loop=loop)
+server = loop.run_until_complete(coro)
 try:
     loop.run_forever()
 except KeyboardInterrupt:
