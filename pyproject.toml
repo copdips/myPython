@@ -26,10 +26,7 @@ jobs = 0
 # you should avoid defining new builtins when possible.
 additional-builtins = ["spark"]
 [tool.pylint.basic]
-good-names = [
-    "df",  # datafram
-    "tb",  # traceback
-]
+good-names = ["df", "tb", "f1", "f2", "f3"]
 [tool.pylint."messages control"]
 disable = [
     "missing-module-docstring",
