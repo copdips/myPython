@@ -27,6 +27,8 @@ if __name__ == "__main__":
     # cannot use asyncio.create_task() here, becasue there's no running event loop yet, which will be created by below asyncio.get_event_loop()
     # so we must create coroutine and then concert it to Future by asyncio.wait()
     tasks = [download_image(url) for url in url_list]
+    # ! asyncio.ensure_future() is not necessary
+    # tasks = [asyncio.ensure_future(download_image(url)) for url in url_list]
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.wait(tasks))
