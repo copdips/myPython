@@ -19,10 +19,9 @@ def callback2(t1, future: Future):
 
 
 async def main():
-
     task1 = asyncio.create_task(f1())
     task1.add_done_callback(callback1)  # 给task1绑定了一个回调函数
-    # task1.add_done_callback(partial(callback2, "这是t1参数"))
+    task1.add_done_callback(partial(callback2, "这是t1参数"))
     # await task1
 
     tasks = [task1]
