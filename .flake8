@@ -13,3 +13,9 @@ exclude =
     venv,
     stack,
     _local_test,
+extend-immutable-calls =
+    Depends,
+    fastapi.Depends,
+    fastapi.params.Depends,
+    fastapi.Header,
+    Header,
