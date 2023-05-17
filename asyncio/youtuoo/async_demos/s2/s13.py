@@ -5,9 +5,10 @@ from starlette.routing import Route
 
 
 async def homepage(request: Request):
-    data = await request.form()
+    # data = await request.form()
+    data = await request.json()
     print(data.get("name"))
-    return JSONResponse({})
+    return JSONResponse(data)
 
 
 routes = [
