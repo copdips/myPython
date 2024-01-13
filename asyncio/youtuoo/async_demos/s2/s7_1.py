@@ -5,7 +5,6 @@ import aiosmtplib
 
 
 async def main():
-
     message = EmailMessage()
 
     message["From"] = "root@localhost"

@@ -135,3 +135,5 @@ dmypy.json
 # hydra folders
 outputs/
 multirun/
+
+junit/

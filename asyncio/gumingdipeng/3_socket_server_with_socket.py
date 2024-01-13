@@ -4,7 +4,7 @@ import threading
 server = socket.socket()
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
 server.bind(("localhost", 12345))
-server.listen(5)
+server.listen(1)
 print("server is listening...")
 
 

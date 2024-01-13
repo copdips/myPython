@@ -1,9 +1,8 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: check-json
-        exclude: devcontainer.json
       - id: check-yaml
       - id: check-toml
       - id: end-of-file-fixer
@@ -16,18 +15,18 @@ repos:
       - id: check-added-large-files
       # - id: no-commit-to-branch
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.3.1
+    rev: v1.5.4
     hooks:
       - id: forbid-crlf
       - id: remove-crlf
       - id: forbid-tabs
       - id: remove-tabs
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.4
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.9.0
+    rev: v1.10.0
     hooks:
       - id: python-check-blanket-type-ignore
       - id: python-check-mock-methods
@@ -35,44 +34,25 @@ repos:
       - id: python-use-type-annotations
   - repo: local
     hooks:
-      - id: isort
-        name: isort
-        entry: isort
-        language: system
-        types: [python]
+      # - id: ruff
+      #   name: ruff
+      #   entry: ruff
+      #   language: system
+      #   types: [python]
+      #   args:
+      #     - "."
       - id: black
         name: black
         entry: black
         language: system
         types: [python]
-      # - id: bandit
-      #   name: bandit
-      #   entry: bandit
-      #   language: system
-      #   types: [python]
-      #   args:
-      #     - -c
-      #     - pyproject.toml
-      # - id: pylint
-      #   name: pylint
-      #   entry: pylint
-      #   language: system
-      #   types: [python]
-      #   exclude: tests_notebooks
-      # - id: flake8
-      #   name: flake8
-      #   entry: flake8
-      #   language: system
-      #   types: [python]
-      #   exclude: tests_notebooks
-      # - id: mypy
-      #   name: mypy
-      #   language: system
-      #   entry: mypy
-      #   types: [python]
-      #   args:
-      #     # - --strict
-      #     - --show-error-codes
+        args:
+          - "."
+      - id: pyright
+        name: pyright
+        language: system
+        entry: pyright
+        types: [python]
       # - id: pytest
       #   name: pytest
       #   types: [python]

@@ -1,42 +1,98 @@
-[tool.isort]
-profile = "black"
+[tool.ruff]
+# format = "github"
+fix = true
+show-fixes = true
+select = ["ALL"]
+ignore = [
+    # https://beta.ruff.rs/docs/rules/
+    "D",      # pydocstyle
+    "E501",   # line too long, handled by black
+    "B008",   # do not perform function calls in argument defaults
+    "ANN",    # flake8-annotations
+    "PTH123", # pathlib-open - this would force pathlib usage anytime open or with open was used.
+    "FA102",  # Missing `from __future__ import annotations`, but uses PEP 604 union.
+    "T201",   # `print` found
+    "T203",   # `pprint` found
+    "G004",   # Logging statement uses f-string
+]
+[tool.ruff.per-file-ignores]
+"tests/**/*.py" = [
+    # at least this three should be fine in tests:
+    "S101", # asserts allowed in tests...
+    # "ARG", # Unused function args -> fixtures nevertheless are functionally relevant...
+    # "FBT", # Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+]
+".github/**/*.py" = [
+    "INP001", # Add an `__init__.py`
+]
+[tool.ruff.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+[tool.ruff.pylint]
+max-args = 8
 
-[tool.mypy]
-ignore_missing_imports = true
-warn_return_any = true
-warn_unused_configs = true
-# disallow_untyped_defs = true
-exclude = ["^venv/", "^build/", "^_local_test/"]
 
-[tool.bandit]
-exclude_dirs = ["venv", "_local_test"]
-skips = ["B101"]
-# tests = ["B201", "B301"]
+[tool.ruff.pep8-naming]
+classmethod-decorators = ["pydantic.validator"]
+
+[tool.pyright]
+reportUnnecessaryTypeIgnoreComment = true
+# venv = ".venv"
+include = ["asyncio"]
+venvPath = "."
+venv = ".venv"
 
 [tool.pylint.main]
-# ! type to use pyspark-stubs
-# extension-pkg-allow-list = ["pyspark"]
-# ignored-modules = ["pyspark"]
-jobs = 0
-# [tool.pylint.typecheck]
-# # ! type to use pyspark-stubs
-# generated-members = ["pyspark.sql.functions"]
-[tool.pylint.variables]
-# List of additional names supposed to be defined in builtins. Remember that
-# you should avoid defining new builtins when possible.
-additional-builtins = ["spark"]
-[tool.pylint.basic]
-good-names = ["df", "tb", "f1", "f2", "f3"]
-[tool.pylint."messages control"]
-disable = [
-    "missing-module-docstring",
-    "missing-class-docstring",
-    "missing-function-docstring",
-    "logging-fstring-interpolation",
+ignore-paths = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit"]
+addopts = """
+    -v -s
+    --junitxml=junit/test-results.xml
+    --cov cicd_test
+    --cov-report=html
+    --cov-report=xml
+    --cov-report=term-missing:skip-covered
+    --cov-fail-under=0
+    """
+
+[project]
+name = "myPython"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+authors = [
+    { name = "Xiang ZHU", email = "xiang.zhu@outlook.com" },
 ]
-[tool.pylint.miscellaneous]
-notes = ["FIXME"]
-[tool.pylint.format]
-max-line-length = 88
-expected-line-ending-format = "LF"
-ignore-long-lines = ".*https?:.*"
+description = "myPython"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+classifiers = [
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+repository = "https://github.com/copdips/myPython"
+documentation = "https://github.com/copdips/myPython"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { file = ["VERSION"] }
+
+[tool.setuptools.dynamic.dependencies]
+file = ["requirements/requirements.txt"]
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = { file = ["requirements/requirements-dev.txt"] }
+docs = { file = ["requirements/requirements-docs.txt"] }
+databricks = { file = ["requirements/requirements-databricks.txt"] }
+release = { file = ["requirements/requirements-release.txt"] }
+local = { file = ["requirements/requirements-local.txt"] }
+
+[tool.coverage.run]
+relative_files = true

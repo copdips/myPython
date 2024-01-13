@@ -14,7 +14,6 @@ async def f2():
 
 
 async def main():
-
     print("main start")
 
     tasks = [
