@@ -14,8 +14,10 @@ lint.ignore = [
     "T201",   # `print` found
     "T203",   # `pprint` found
     "G004",   # Logging statement uses f-string
-    "COM812",
-    "ISC001",
+    "TD002",  # Missing author in TODO
+    "TD003",  # Missing issue link on the line following this TODO
+    "COM812", # missing-trailing-comma
+    "ISC001", # single-line-implicit-string-concatenation
 ]
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
@@ -32,32 +34,31 @@ combine-as-imports = true
 force-wrap-aliases = true
 [tool.ruff.lint.pylint]
 max-args = 8
-
-
 [tool.ruff.lint.pep8-naming]
 classmethod-decorators = ["pydantic.validator"]
 
 [tool.pyright]
 reportUnnecessaryTypeIgnoreComment = true
 # venv = ".venv"
-exclude = ["asyncio_demo"]
-venvPath = "."
-venv = ".venv"
-
-[tool.pylint.main]
-ignore-paths = ["."]
+exclude = ["asyncio_demo", "_local_test"]
+# venvPath = "."
+# venv = ".venv"
 
 [tool.pytest.ini_options]
 testpaths = ["tests/unit"]
 addopts = """
     -v -s
     --junitxml=junit/test-results.xml
-    --cov cicd_test
+    --cov app
     --cov-report=html
     --cov-report=xml
     --cov-report=term-missing:skip-covered
     --cov-fail-under=0
+    --pdbcls=IPython.terminal.debugger:TerminalPdb
     """
+
+[tool.coverage.run]
+relative_files = true
 
 [project]
 name = "myPython"
@@ -95,6 +96,3 @@ docs = { file = ["requirements/requirements-docs.txt"] }
 databricks = { file = ["requirements/requirements-databricks.txt"] }
 release = { file = ["requirements/requirements-release.txt"] }
 local = { file = ["requirements/requirements-local.txt"] }
-
-[tool.coverage.run]
-relative_files = true
