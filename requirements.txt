@@ -1,1 +1,14 @@
+aiohttp
+aiomysql
+aioredis
 aiosmtplib
+fastapi
+flask
+httpx
+hydra-core
+omegaconf
+redis
+requests
+sqlalchemy
+starlette
+uvloop

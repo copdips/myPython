@@ -13,7 +13,9 @@ def callback(future: Future):
 
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(f1())  # 这个事件循环不会一直运行，会在f1运行结束会结束事件循环。
+loop.run_until_complete(
+    f1()
+)  # 这个事件循环不会一直运行，会在f1运行结束会结束事件循环。
 
 
 # loop = asyncio.get_event_loop()

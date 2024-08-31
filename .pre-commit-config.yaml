@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-json
       - id: check-yaml
@@ -15,7 +15,7 @@ repos:
       - id: check-added-large-files
       # - id: no-commit-to-branch
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.4
+    rev: v1.5.5
     hooks:
       - id: forbid-crlf
       - id: remove-crlf
@@ -32,6 +32,11 @@ repos:
       - id: python-check-mock-methods
       - id: python-no-log-warn
       - id: python-use-type-annotations
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.3
+    hooks:
+      - id: ruff
+      - id: ruff-format
   - repo: local
     hooks:
       # - id: ruff
@@ -41,13 +46,6 @@ repos:
       #   types: [python]
       #   args:
       #     - "."
-      - id: black
-        name: black
-        entry: black
-        language: system
-        types: [python]
-        args:
-          - "."
       - id: pyright
         name: pyright
         language: system

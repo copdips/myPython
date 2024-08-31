@@ -14,7 +14,11 @@ async def main():
     message.set_content("这是一个测试邮件，请忽略")
 
     await aiosmtplib.send(
-        message, hostname="smtp.qq.com", port=587, username="你的QQ邮箱号", password="授权码"
+        message,
+        hostname="smtp.qq.com",
+        port=587,
+        username="你的QQ邮箱号",
+        password="授权码",
     )
 
 

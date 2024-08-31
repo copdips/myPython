@@ -1,13 +1,13 @@
-import os
+from pathlib import Path
 
-from omegaconf import DictConfig, OmegaConf
+from omegaconf import DictConfig
 
 import hydra
 
 
 @hydra.main(version_base=None, config_path=".", config_name="config")
 def my_app(cfg: DictConfig):
-    print("Working directory : {}".format(os.getcwd()))
+    print(f"Working directory: {Path.cwd()}")
     assert cfg.node.loompa == 10  # attribute style access
     assert cfg["node"]["loompa"] == 10  # dictionary style access
 

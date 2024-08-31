@@ -2,8 +2,8 @@
 # format = "github"
 fix = true
 show-fixes = true
-select = ["ALL"]
-ignore = [
+lint.select = ["ALL"]
+lint.ignore = [
     # https://beta.ruff.rs/docs/rules/
     "D",      # pydocstyle
     "E501",   # line too long, handled by black
@@ -14,8 +14,10 @@ ignore = [
     "T201",   # `print` found
     "T203",   # `pprint` found
     "G004",   # Logging statement uses f-string
+    "COM812",
+    "ISC001",
 ]
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
     # at least this three should be fine in tests:
     "S101", # asserts allowed in tests...
@@ -25,20 +27,20 @@ ignore = [
 ".github/**/*.py" = [
     "INP001", # Add an `__init__.py`
 ]
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 combine-as-imports = true
 force-wrap-aliases = true
-[tool.ruff.pylint]
+[tool.ruff.lint.pylint]
 max-args = 8
 
 
-[tool.ruff.pep8-naming]
+[tool.ruff.lint.pep8-naming]
 classmethod-decorators = ["pydantic.validator"]
 
 [tool.pyright]
 reportUnnecessaryTypeIgnoreComment = true
 # venv = ".venv"
-include = ["asyncio"]
+exclude = ["asyncio_demo"]
 venvPath = "."
 venv = ".venv"
 
