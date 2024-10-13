@@ -18,6 +18,7 @@ lint.ignore = [
     "TD003",  # Missing issue link on the line following this TODO
     "COM812", # missing-trailing-comma
     "ISC001", # single-line-implicit-string-concatenation
+    "INP001", # Add an `__init__.py`
 ]
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [

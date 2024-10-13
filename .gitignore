@@ -137,3 +137,6 @@ outputs/
 multirun/
 
 junit/
+
+# viztracer
+result.json
